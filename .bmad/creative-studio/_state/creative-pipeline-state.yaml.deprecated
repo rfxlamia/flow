@@ -1,0 +1,77 @@
+---
+# Creative Studio Pipeline State
+# Tracks current project through all workflow stages
+# Auto-updated by workflows as they complete
+
+# Current Project
+current_project:
+  id: null
+  title: null
+  created: null
+  updated: null
+
+# Pipeline Progress
+# Each workflow updates its stage upon completion
+stages:
+  - stage: 01-diverse-content-gen
+    status: pending
+    output_file: null
+    tracking_file: null
+    completed_at: null
+
+  - stage: 02-storyteller
+    status: pending
+    input_from: null
+    waiting_for_user: false
+
+  - stage: 03-screenwriter
+    status: pending
+    input_from: null
+    waiting_for_user: false
+
+  - stage: 04-production-validator
+    status: pending
+    input_from: null
+    waiting_for_user: false
+
+  - stage: 05-imagine
+    status: pending
+    input_from: null
+    waiting_for_user: false
+
+# Quick Access
+current_stage: null
+last_output: null
+next_stage_ready: false
+
+# Project History (last 10 projects)
+history: []
+
+---
+
+# Pipeline State Management
+
+## How This Works
+
+1. **Initialization:** When diverse-content-gen starts, it creates a new project ID
+2. **Stage Completion:** Each workflow updates its stage status upon successful completion
+3. **Handoff:** Completed stages set next_stage_ready=true and provide input file path
+4. **Resume:** Workflows check this file to resume from last completed stage
+
+## File Locations
+
+- **State File:** `.bmad/creative-studio/_state/creative-pipeline-state.yaml`
+- **Stage Tracking:** `.bmad/creative-studio/_state/content-gen-{timestamp}.yaml` (per stage)
+- **Content Outputs:** `.bmad/creative-studio/workflows/{workflow}/outputs/*.md`
+
+## Usage
+
+Workflows read this file to:
+- Check what stage the pipeline is at
+- Load previous outputs for continuation
+- Understand project context
+
+Workflows write to this file to:
+- Mark stages as completed
+- Record output file locations
+- Signal next stage readiness

@@ -1,0 +1,1 @@
+IT IS CRITICAL THAT YOU FOLLOW THIS COMMAND: LOAD the FULL @.bmad/creative-studio/workflows/init-creative-studio/workflow.md, READ its entire contents and follow its directions exactly to initialize a new creative project with centralized output structure!

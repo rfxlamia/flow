@@ -1,0 +1,1 @@
+IT IS CRITICAL THAT YOU FOLLOW THIS COMMAND: LOAD the FULL @.bmad/creative-studio/workflows/switch-project/workflow.md, READ its entire contents and follow its directions exactly to switch the currently active creative project!

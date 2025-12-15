@@ -1,0 +1,1 @@
+IT IS CRITICAL THAT YOU FOLLOW THIS COMMAND: LOAD the FULL @.bmad/creative-studio/workflows/project-status/workflow.md, READ its entire contents and follow its directions exactly to display all creative projects and their current status!

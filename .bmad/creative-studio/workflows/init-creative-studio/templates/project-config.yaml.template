@@ -1,0 +1,52 @@
+# Creative Studio Project Configuration Template
+# This file will be populated when init-creative-studio runs
+
+project:
+  name: "{project_name}"
+  display_name: "{display_name}"
+  created: "{timestamp}"
+  author: "{user_name}"
+
+content:
+  type: "{content_type}"
+  platform: "{target_platform}"
+  estimated_length: "{estimated_length}"
+  description: |
+    {description}
+
+pipeline:
+  type: "{pipeline_type}"
+  current_stage: 0
+  stages_completed: []
+
+status: "initialized"
+
+paths:
+  project_root: "docs/projects/{project_name}-{timestamp}"
+  outputs: "outputs/"
+
+# Stage tracking
+stages:
+  "01-diverse":
+    status: "pending"
+    outputs: []
+  "02-storyteller":
+    status: "pending"
+    outputs: []
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+  "04-validator":
+    status: "pending"
+    outputs: []
+  "05-imagine":
+    status: "pending"
+    outputs: []
+  "06-arch-v":
+    status: "pending"
+    outputs: []
+
+# Metadata
+metadata:
+  created_by_workflow: "init-creative-studio"
+  creative_studio_version: "1.1.0"

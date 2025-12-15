@@ -1,0 +1,91 @@
+# Creative Studio Module
+# AI-powered content creation pipeline for visual storytelling
+# Version: 1.0.0
+
+module_id: creative-studio
+module_name: "Creative Studio"
+version: "1.4.5"
+description: "AI-powered content creation platform for video, blog, carousel, and more"
+
+# Module Metadata
+author: "V"
+created: "2025-12-13"
+updated: "2025-12-15"
+bmad_core_version: ">=6.0.0"
+
+# Version History
+# 1.4.5 - Art style discovery: replaced hardcoded list with dynamic ls command
+#       - Claude now runs `ls references/artstyle-*.md` to discover available styles
+#       - Template generator updated to instruct dynamic art style listing
+# 1.4.4 - CRITICAL FIX: Input path correction for imagine and arch-v
+#       - Imagine now reads from 04-validator (was incorrectly reading 03-screenwriter)
+#       - Arch-v standalone mode now reads from 04-validator (was 03-screenwriter)
+#       - Production-validator provides 8-second chunks required for Veo 3
+#       - Template generators updated to find_validated_file() pattern
+# 1.4.3 - Enabled arch-v standalone mode (Text-to-Video without imagine)
+#       - Arch-v script reads screenplay directly if no imagine output
+#       - Supports all 3 paths: Text-to-Video, Image-to-Video, Dual Keyframe
+#       - Auto-detects source type and adjusts template generation
+# 1.4.2 - Added validation step to imagine workflow (Step 1.5)
+#       - AI validates template against screenplay before asking questions
+#       - Filters non-physical characters (interfaces, effects)
+#       - Filters transitional location descriptions
+# 1.4.1 - Fixed character detection to match screenwriter XML patterns
+#       - Fixed location detection to prioritize <location> tags
+#       - Removed greedy ALL CAPS pattern that caught visual effects
+# 1.4.0 - Added Python template generators for imagine and arch-v
+#       - Natural flow: detect consistency needs, ask relevant questions
+#       - Dual keyframe integration between imagine and arch-v
+#       - Template-first approach for token efficiency
+# 1.3.0 - Enhanced storyteller with atmospheric insert system
+#       - Enhanced imagine with character consistency + dual keyframe
+#       - Added 6 new reference files
+# 1.2.0 - Added project management workflows
+# 1.1.0 - Added arch-v video orchestrator
+# 1.0.0 - Initial 6-stage pipeline
+
+# Pipeline Architecture
+pipeline_stages:
+  - stage: 00
+    workflow: init-creative-studio
+    description: "Initialize new creative project with centralized output structure"
+    outputs_to: diverse-content-gen
+
+  - stage: 01
+    workflow: diverse-content-gen
+    description: "Generate diverse creative content using Verbalized Sampling"
+    outputs_to: storyteller
+
+  - stage: 02
+    workflow: storyteller
+    description: "Transform metaphorical narrative into filmable visual scenes"
+    outputs_to: screenwriter
+
+  - stage: 03
+    workflow: screenwriter
+    description: "Format visual scenes into professional screenplay format"
+    outputs_to: production-validator
+
+  - stage: 04
+    workflow: production-validator
+    description: "Validate production readiness and technical feasibility"
+    outputs_to: imagine
+
+  - stage: 05
+    workflow: imagine
+    description: "Generate professional Imagen prompts for visual creation"
+    outputs_to: arch-v
+
+  - stage: 06
+    workflow: arch-v
+    description: "Generate validated Veo 3 video prompts via Text-to-Video or Image-to-Video paths"
+    outputs_to: null
+
+# State Management
+state_file: ".bmad/creative-studio/_state/creative-pipeline-state.yaml"
+projects_registry: ".bmad/creative-studio/_state/projects-registry.yaml"
+output_directory: "{active_project_path}/{stage}/"  # Centralized per project
+
+# Dependencies
+dependencies:
+  bmad_core: ">=6.0.0"

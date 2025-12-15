@@ -1,0 +1,228 @@
+# Imagine Output Template: claudia-2025-12-14T12-51-20Z
+
+**Generated:** 2025-12-15T03-07-01Z
+**Status:** TEMPLATE - Awaiting Claude completion
+
+---
+
+## CONSISTENCY ELEMENTS DETECTED
+
+### Characters Found (0)
+- No characters detected - add manually if needed
+
+### Locations Found (2)
+- [ ] Aesthetic Desk Workspace - NEEDS REFERENCE PROMPTS
+- [ ] Real Workspace - NEEDS REFERENCE PROMPTS
+
+### Props Detected (4)
+- [ ] Continuation - TRACK IF SIGNIFICANT
+- [ ] Photo - TRACK IF SIGNIFICANT
+- [ ] Cup - TRACK IF SIGNIFICANT
+- [ ] Ring - TRACK IF SIGNIFICANT
+
+---
+
+## WORKFLOW QUESTIONS FOR USER
+
+### Q1: Character Consistency
+```
+Ditemukan 0 karakter: None
+
+Untuk setiap karakter, Claude perlu tahu:
+- Usia dan penampilan fisik
+- Etnis/ras (untuk deskripsi kulit, fitur wajah)
+- Pakaian khas
+- Fitur unik (bekas luka, tato, dll)
+
+Apakah Anda ingin memberikan detail karakter sekarang?
+[Y] Ya, saya akan jelaskan / [N] Biarkan Claude menentukan dari konteks
+```
+
+### Q2: Dual Keyframe Mode
+```
+Screenplay memiliki 18 scene.
+
+DUAL KEYFRAME MODE menghasilkan 2 prompt per scene:
+- First Frame: Komposisi awal
+- Last Frame: Komposisi akhir
+- Veo 3 akan interpolasi di antara keduanya
+
+Mode ini DIREKOMENDASIKAN untuk:
+- Scene dengan pergerakan karakter
+- Scene dengan perubahan emosi
+- Scene dengan camera movement
+
+Gunakan Dual Keyframe Mode?
+[Y] Ya (direkomendasikan) / [N] Tidak, single keyframe saja
+```
+
+### Q3: Art Style Selection
+```
+Pilih art style:
+
+1. Science SARU (Default) - Anime Masaaki Yuasa
+2. Crewdson Hyperrealism - Cinematic photography
+3. iPhone Social Media - Casual authentic
+4. Corporate Memphis - Flat illustration
+5. Photography - Photorealistic
+
+Pilihan: ___
+```
+
+---
+
+## CHARACTER REFERENCE SECTION
+<!-- Claude: Fill after user provides character details -->
+
+### Character: [CHARACTER_1]
+**Status:** [ ] Reference prompts generated
+
+**Physical Description:**
+- Age: [TO BE FILLED]
+- Ethnicity: [TO BE FILLED]
+- Skin tone: [TO BE FILLED]
+- Face: [TO BE FILLED]
+- Hair: [TO BE FILLED]
+- Build: [TO BE FILLED]
+
+**Wardrobe:**
+- Phase 1: [TO BE FILLED]
+- Phase 2: [TO BE FILLED]
+- Phase 3: [TO BE FILLED]
+- Phase 4: [TO BE FILLED]
+
+**Reference Prompts:**
+1. [ ] Portrait Front
+2. [ ] Portrait 3/4
+3. [ ] Portrait Profile
+4. [ ] Full Body
+5. [ ] Hands Detail
+6. [ ] Lighting Variant
+
+---
+
+
+## LOCATION REFERENCE SECTION
+<!-- Claude: Generate location prompts based on screenplay context -->
+
+### Location: Aesthetic Desk Workspace
+**Status:** [ ] Reference prompts generated
+
+**Prompts:**
+1. [ ] Establishing Wide
+2. [ ] Surface Detail
+3. [ ] Time Variant (if needed)
+
+---
+
+### Location: Real Workspace
+**Status:** [ ] Reference prompts generated
+
+**Prompts:**
+1. [ ] Establishing Wide
+2. [ ] Surface Detail
+3. [ ] Time Variant (if needed)
+
+---
+
+
+## SCENE KEYFRAMES SECTION
+<!-- Claude: Generate for each scene based on dual/single keyframe mode -->
+
+**Mode:** [ ] Single Keyframe / [ ] Dual Keyframe
+**Total Scenes:** 18
+
+### Scene 1: [TITLE]
+**Chunk ID:** 1a
+
+**FIRST KEYFRAME:**
+- [ ] Prompt generated
+- Purpose: Opening composition
+- Aspect Ratio: 16:9
+
+**LAST KEYFRAME:** (if dual mode)
+- [ ] Prompt generated
+- Purpose: Closing composition
+- Transition Intent: [DESCRIBE MOTION]
+
+---
+
+### Scene 2: [TITLE]
+**Chunk ID:** 2a
+
+**FIRST KEYFRAME:**
+- [ ] Prompt generated
+
+**LAST KEYFRAME:** (if dual mode)
+- [ ] Prompt generated
+
+---
+
+<!-- Continue for all 18 scenes -->
+
+## PROPS TRACKING SECTION (Optional)
+<!-- Claude: Track if props are significant to story -->
+
+### Prop: Continuation
+- Symbolic meaning: [TO BE FILLED]
+- Scenes appearing: [TO BE FILLED]
+- Progression: Phase 1 → Phase 2 → Phase 3 → Phase 4
+
+---
+
+### Prop: Photo
+- Symbolic meaning: [TO BE FILLED]
+- Scenes appearing: [TO BE FILLED]
+- Progression: Phase 1 → Phase 2 → Phase 3 → Phase 4
+
+---
+
+### Prop: Cup
+- Symbolic meaning: [TO BE FILLED]
+- Scenes appearing: [TO BE FILLED]
+- Progression: Phase 1 → Phase 2 → Phase 3 → Phase 4
+
+---
+
+### Prop: Ring
+- Symbolic meaning: [TO BE FILLED]
+- Scenes appearing: [TO BE FILLED]
+- Progression: Phase 1 → Phase 2 → Phase 3 → Phase 4
+
+---
+
+
+## COMPLETION CHECKLIST
+
+### Before Starting:
+- [ ] User answered Q1 (character details)
+- [ ] User answered Q2 (dual keyframe mode)
+- [ ] User answered Q3 (art style)
+
+### Generation Progress:
+- [ ] Character reference prompts (0 characters × 6 prompts)
+- [ ] Location reference prompts (2 locations × 3 prompts)
+- [ ] Scene keyframes (18 scenes × 1-2 prompts each)
+- [ ] Props tracking (if applicable)
+
+### Final Output:
+- [ ] All prompts under 480 tokens
+- [ ] Art style vocabulary consistent
+- [ ] Character descriptions identical across prompts
+- [ ] Dual keyframes have transition intent
+- [ ] Pipeline state updated
+
+---
+
+## NEXT STEPS FOR CLAUDE
+
+1. Present Q1, Q2, Q3 to user
+2. Fill character details based on user input
+3. Load appropriate art style reference
+4. Generate prompts following template structure
+5. Output final file: `imagine-prompts-2025-12-15T03-07-01Z.md`
+
+---
+
+*Template generated by imagine/scripts/generate-template.py*
+*Ready for Claude completion*

@@ -1,0 +1,47 @@
+# Creative Studio Project Configuration
+# Generated: 2025-12-14T12-51-20Z
+
+project:
+  name: "claudia"
+  display_name: "Claudia"
+  created: "2025-12-14T12-51-20Z"
+  author: "V"
+
+content:
+  type: "video"
+  platform: "instagram"
+  estimated_length: "60-90 seconds"
+  description: |
+    An advertisement for Claude by Anthropic
+
+pipeline:
+  type: "video-full"
+  current_stage: 1
+  stages_completed: ["01-diverse"]
+
+status: "active"
+
+paths:
+  project_root: "docs/projects/claudia-2025-12-14T12-51-20Z"
+  outputs: "outputs/"
+
+# Stage tracking
+stages:
+  "01-diverse":
+    status: "completed"
+    outputs: ["diverse-content-gen-2025-12-14T13-00-01Z.md"]
+  "02-storyteller":
+    status: "ready"
+    outputs: []
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+  "04-validator":
+    status: "pending"
+    outputs: []
+  "05-imagine":
+    status: "pending"
+    outputs: []
+  "06-arch-v":
+    status: "pending"
+    outputs: []

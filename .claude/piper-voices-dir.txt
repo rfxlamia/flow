@@ -1,0 +1,1 @@
+/home/v/.claude/piper-voices

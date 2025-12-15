@@ -1,0 +1,233 @@
+# Step 2: Create Directory Structure
+
+**Purpose:** Build organized project workspace with all necessary folders and files
+
+---
+
+## Instructions
+
+Using the information gathered from Step 1, create the project directory structure.
+
+### Directory Path Format
+
+```
+{output_folder}/projects/{project_name}-{timestamp}/
+```
+
+Where:
+- `{output_folder}` = from BMAD config (typically `docs/`)
+- `{project_name}` = slug from Step 1
+- `{timestamp}` = ISO format like `2025-12-14T12-30-00Z`
+
+**Example:** `docs/projects/dua-pelaut-satu-lautan-2025-12-14T12-30-00Z/`
+
+---
+
+## Directory Structure to Create
+
+```
+{project_folder}/
+├── project-config.yaml          # Project configuration (from template)
+├── pipeline-state.yaml          # Per-project pipeline state tracking
+├── README.md                    # Project documentation (from template)
+│
+├── 01-diverse/                  # Stage 1: Diverse content generation
+├── 02-storyteller/              # Stage 2: Visual scene breakdown (video)
+├── 03-screenwriter/             # Stage 3: Screenplay formatting (video)
+├── 04-validator/                # Stage 4: Production validation (video)
+├── 05-imagine/                  # Stage 5: Imagen prompt generation (video)
+└── 06-arch-v/                   # Stage 6: Veo 3 video prompts (video)
+```
+
+**Note:** For non-video content types, stages 02-06 may have different names in future versions.
+
+---
+
+## Create Configuration File
+
+Copy template from `templates/project-config.yaml.template` and populate with variables:
+
+```yaml
+# Creative Studio Project Configuration
+# Generated: {timestamp}
+
+project:
+  name: "{project_name}"
+  display_name: "{display_name}"  # Original user input
+  created: "{timestamp}"
+  author: "{user_name}"  # From BMAD config
+
+content:
+  type: "{content_type}"           # video, blog, carousel, etc
+  platform: "{target_platform}"    # youtube, instagram, etc
+  estimated_length: "{estimated_length}"
+  description: |
+    {description}
+
+pipeline:
+  type: "video-full"  # video-full, blog-post, carousel, etc
+  current_stage: 0
+  stages_completed: []
+
+status: "initialized"  # initialized, in-progress, completed
+
+paths:
+  project_root: "docs/projects/{project_name}-{timestamp}"
+  outputs: "outputs/"
+
+# Stage tracking
+stages:
+  "01-diverse":
+    status: "pending"
+    outputs: []
+  "02-storyteller":
+    status: "pending"
+    outputs: []
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+  "04-validator":
+    status: "pending"
+    outputs: []
+  "05-imagine":
+    status: "pending"
+    outputs: []
+  "06-arch-v":
+    status: "pending"
+    outputs: []
+```
+
+Save to: `{project_folder}/project-config.yaml`
+
+---
+
+## Create Pipeline State File
+
+Create a per-project pipeline state tracker:
+
+```yaml
+# Creative Studio Pipeline State
+# Project: {project_name}-{timestamp}
+# Auto-updated by workflows as they complete
+
+project_id: "{project_name}-{timestamp}"
+current_stage: 0
+last_updated: "{timestamp}"
+
+# Stage Tracking
+stages:
+  "01-diverse":
+    status: "pending"
+    outputs: []
+    output_location: "01-diverse/"
+
+  "02-storyteller":
+    status: "pending"
+    outputs: []
+    output_location: "02-storyteller/"
+    input_from: "01-diverse"
+
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+    output_location: "03-screenwriter/"
+    input_from: "02-storyteller"
+
+  "04-validator":
+    status: "pending"
+    outputs: []
+    output_location: "04-validator/"
+    input_from: "03-screenwriter"
+
+  "05-imagine":
+    status: "pending"
+    outputs: []
+    output_location: "05-imagine/"
+    input_from: "04-validator"
+
+  "06-arch-v":
+    status: "pending"
+    outputs: []
+    output_location: "06-arch-v/"
+    input_from: "05-imagine"
+
+# Quick Access
+next_stage_ready: false
+next_stage: "01-diverse"
+last_output: null
+```
+
+Save to: `{project_folder}/pipeline-state.yaml`
+
+---
+
+## Create README File
+
+Copy template from `templates/README.md.template` and populate:
+
+```markdown
+# {display_name}
+
+**Project ID:** {project_name}-{timestamp}
+**Created:** {timestamp}
+**Type:** {content_type}
+**Platform:** {target_platform}
+
+## Description
+
+{description}
+
+## Project Details
+
+- **Estimated Length:** {estimated_length}
+- **Pipeline:** {pipeline_type}
+- **Status:** {status}
+
+## Directory Structure
+
+- `01-diverse/` - Creative variations from diverse-content-gen
+- `02-storyteller/` - Visual scene breakdown
+- `03-screenwriter/` - Professional screenplay
+- `04-validator/` - Production validation
+- `05-imagine/` - Imagen prompts for images
+- `06-arch-v/` - Veo 3 prompts for video
+
+## Workflow Progress
+
+- [ ] Stage 01: Diverse Content Generation
+- [ ] Stage 02: Storyteller
+- [ ] Stage 03: Screenwriter
+- [ ] Stage 04: Production Validator
+- [ ] Stage 05: Imagine
+- [ ] Stage 06: Arch-V
+
+## Notes
+
+Add your project notes here as you work through the pipeline.
+
+---
+
+*Generated by Creative Studio v1.1.0*
+```
+
+Save to: `{project_folder}/README.md`
+
+---
+
+## Confirmation
+
+After creating all directories and files, confirm:
+
+✅ Project folder created
+✅ All stage directories created
+✅ project-config.yaml generated
+✅ README.md generated
+✅ Output directory ready
+
+**Output the full project path for user confirmation.**
+
+---
+
+## Next Step
+
+Proceed to `step-03-register-project.md` to register this project in the global registry.

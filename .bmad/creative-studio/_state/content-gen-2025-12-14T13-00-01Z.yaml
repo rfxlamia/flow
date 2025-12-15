@@ -1,0 +1,61 @@
+---
+# Creative Pipeline State - diverse-content-gen
+workflow_stage: 01-diverse-content-gen
+next_stage: 02-storyteller
+status: completed
+created_at: "2025-12-14T13:00:01Z"
+user_name: "V"
+
+# VS Execution Data
+vs_parameters:
+  k: 5
+  temperature: 0.8
+  threshold: 0.10
+  technique: "vs-multi"  # Used refinement after initial generation
+
+# Generated Content Summary
+candidates_generated: 10  # 5 initial + 5 refined variations
+diversity_score: 2.0
+content_type: "advertisement-concept"
+
+# User Selection
+selected_idea_id: "5A"
+selected_idea_title: "The Glitch in Your Productivity Porn"
+
+# === HANDOFF METADATA FOR STORYTELLER ===
+# ALL fields below are REQUIRED by storyteller workflow
+
+# Content identification
+content_file: "docs/projects/claudia-2025-12-14T12-51-20Z/01-diverse/diverse-content-gen-2025-12-14T13-00-01Z.md"
+selected_content_section: "IDEA 5A"
+
+# Emotional & tonal data (REQUIRED for storyteller)
+emotional_core: "self-aware honesty, anti-perfectionism"
+pov: "second_person"  # "You've seen this before"
+setting: "deconstructed aesthetic workspace"
+tone: "gen_z_ironic"  # Self-aware, breaks fourth wall
+structure_type: "meta_commentary"  # Deconstruction with visual reveal
+
+# Analysis data
+why_this_wins: "Subverts productivity aesthetic trend, Gen-Z resonance through ironic tone, visual glitch/reveal creates scroll-stopping moment, honest value proposition, memorable quotable tagline, platform-native for Instagram Reels"
+diversity_markers: "POV: Second Person Meta, Setting: Deconstructed Workspace, Tone: Gen-Z Ironic, Structure: Meta-commentary"
+
+# Pipeline control
+metaphorical_content: false  # Literal visual concept (green screen reveal, glitch effect)
+target_duration: "60-90 seconds"
+platform: "instagram-reels"
+visual_style: "productivity aesthetic → chaos reveal → organized thoughts split-screen"
+ready_for_next_stage: true
+
+# Additional context for video production
+key_visual_moments:
+  - aesthetic_setup: "Perfect productivity setup with lo-fi beats"
+  - glitch_reveal: "Green screen exposed, chaos revealed (47 tabs, coffee stains)"
+  - split_screen: "Chaos on left, organized thoughts on right"
+  - interface_integration: "Claude interface blending into chaos"
+
+audio_style: "Deadpan voiceover, self-aware tone"
+
+tagline: "No productivity porn. Just thinking that works."
+
+---

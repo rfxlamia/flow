@@ -1,0 +1,21 @@
+# Creative Studio Projects Registry
+# Tracks all creative projects across the workspace
+# Version: 1.0.0
+
+registry_version: "1.0.0"
+last_updated: "2025-12-14T12-51-20Z"
+active_project: "claudia-2025-12-14T12-51-20Z"
+
+projects:
+  - id: "claudia-2025-12-14T12-51-20Z"
+    name: "claudia"
+    display_name: "Claudia"
+    type: "video"
+    platform: "instagram"
+    created: "2025-12-14T12-51-20Z"
+    status: "active"
+    path: "docs/projects/claudia-2025-12-14T12-51-20Z"
+    pipeline: "video-full"
+    pipeline_state: "docs/projects/claudia-2025-12-14T12-51-20Z/pipeline-state.yaml"
+    current_stage: 5
+    stages_completed: ["01-diverse", "02-storyteller", "03-screenwriter", "04-validator", "05-imagine"]
