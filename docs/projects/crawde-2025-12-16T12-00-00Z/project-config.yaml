@@ -1,0 +1,47 @@
+# Creative Studio Project Configuration
+# Generated: 2025-12-16T12-00-00Z
+
+project:
+  name: "crawde"
+  display_name: "crawde"
+  created: "2025-12-16T12-00-00Z"
+  author: "V"
+
+content:
+  type: "video"
+  platform: "youtube"
+  estimated_length: "1 minute"
+  description: |
+    what if, claude have evil twins? what will they do instead helping human?
+
+pipeline:
+  type: "video-full"
+  current_stage: 0
+  stages_completed: []
+
+status: "active"
+
+paths:
+  project_root: "docs/projects/crawde-2025-12-16T12-00-00Z"
+  outputs: "outputs/"
+
+# Stage tracking
+stages:
+  "01-diverse":
+    status: "pending"
+    outputs: []
+  "02-storyteller":
+    status: "pending"
+    outputs: []
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+  "04-validator":
+    status: "pending"
+    outputs: []
+  "05-imagine":
+    status: "pending"
+    outputs: []
+  "06-arch-v":
+    status: "pending"
+    outputs: []

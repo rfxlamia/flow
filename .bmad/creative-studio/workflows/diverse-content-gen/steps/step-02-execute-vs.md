@@ -4,21 +4,31 @@
 
 **Scope:** Content generation only - presentation handled by step-03.
 
-**Token Budget:** ~400 tokens (execution logic + one reference if needed)
+**Token Budget:** ~600 tokens (execution logic + required reference + optional MCP calls)
 
 ---
 
-## LAZY REFERENCE LOADING
+## REQUIRED REFERENCE LOADING
 
-**Load reference ONLY if needed:**
+**ALWAYS load the core VS reference for creative context:**
 
 ```yaml
-IF vs_technique == "vs-basic" AND user_familiar_with_vs:
-  Load: NO reference (use embedded template below)
+# MANDATORY - Load this FIRST before any generation
+Load: references/vs-core-technique.md
 
-IF vs_technique == "vs-basic" AND user_needs_explanation:
-  Load: references/vs-core-technique.md (theory section only)
+# This provides:
+# - VS philosophy and theory (WHY it works)
+# - Mode collapse problem understanding
+# - Production-ready prompt templates
+# - Parameter selection guidance
+# - Quality control checklist
+```
 
+**Rationale:** VS requires creative philosophy context, not just mechanical templates. The reference file contains essential context that improves output diversity and quality.
+
+**Additional references (load on-demand):**
+
+```yaml
 IF vs_technique == "vs-multi":
   Load: references/advanced-techniques.md (VS-Multi section only)
 
@@ -29,7 +39,122 @@ IF errors_occurred:
   Load: references/troubleshooting.md (specific error section)
 ```
 
-**Default:** Use embedded template (NO reference loading).
+---
+
+## MCP SERVER INTEGRATION (Optional Enhancement)
+
+Check for available MCP servers and use them for enhanced quality:
+
+### Sequential Thinking MCP (Ideation Enhancement)
+
+**Detection:** Check if `mcp__sequential-thinking__sequentialthinking` tool is available.
+
+**When to use:** For complex creative requests requiring deep ideation.
+
+**Workflow:**
+```yaml
+IF sequential_thinking_available AND content_type IN ["story-concept", "campaign-idea", "complex-narrative"]:
+
+  # Use Sequential Thinking BEFORE VS generation
+  # This helps explore diversity dimensions systematically
+
+  STEP 1: Ideation via Sequential Thinking
+    - Thought 1: "Analyzing user request for diversity opportunities..."
+    - Thought 2: "Identifying POV variations: first person, second person, third..."
+    - Thought 3: "Exploring tonal dimensions: vulnerable, poetic, theatrical..."
+    - Thought 4: "Considering structural variations: monolog, letter, parallel..."
+    - Thought 5: "Synthesizing optimal diversity matrix for this request..."
+
+  STEP 2: Use ideation output to inform VS generation
+    - Apply discovered diversity dimensions to VS prompt
+    - Ensure each candidate explores different dimension combinations
+```
+
+### Gemini MCP (Orchestrator/Validator Pattern)
+
+**Detection:** Check if Gemini MCP server tools are available (e.g., `mcp__gemini__*`).
+
+**When to use:** For production-quality content requiring validation.
+
+**Multi-Model Architecture:**
+```
+USER REQUEST
+    ↓
+┌─────────────────────────────────────┐
+│ GEMINI (Orchestrator/Validator)     │
+│ Via MCP Server                      │
+└─────────────────────────────────────┘
+    ↓
+    ├─→ STEP 1: Prompt Engineering
+    │   • Receives raw user request
+    │   • Crafts optimal VS prompt
+    │   • Sets k, threshold, target_words
+    │   • Adds task-specific constraints
+    │
+    ↓
+┌─────────────────────────────────────┐
+│ CLAUDE (Generator)                  │
+│ Main model with VS technique        │
+└─────────────────────────────────────┘
+    ↓
+    • Generates k candidates with VS
+    • Returns outputs to Gemini
+    ↓
+┌─────────────────────────────────────┐
+│ GEMINI (Validator)                  │
+└─────────────────────────────────────┘
+    ↓
+    ├─→ STEP 2: Diversity Validation
+    │   • Analyze semantic distance between candidates
+    │   • Check if candidates cover different dimensions
+    │   • Calculate diversity score
+    │
+    ├─→ STEP 3: Quality Check
+    │   • IF diversity LOW (similar outputs):
+    │       → Adjust parameters (lower threshold, increase k)
+    │       → Request RETRY from Claude
+    │   • IF diversity HIGH:
+    │       → Outputs validated! ✅
+    │       → Pass to presentation step
+    │
+    └─→ OUTPUT: Validated diverse candidates
+```
+
+**Implementation:**
+```yaml
+IF gemini_mcp_available:
+
+  # Phase 1: Gemini crafts the VS prompt
+  gemini_prompt_engineering:
+    input: user_request, content_type, target_count
+    output: optimized_vs_prompt, parameters
+
+  # Phase 2: Claude generates with VS
+  claude_generation:
+    input: optimized_vs_prompt
+    output: k_candidates
+
+  # Phase 3: Gemini validates diversity
+  gemini_validation:
+    input: k_candidates
+    checks:
+      - semantic_distance_between_candidates
+      - dimension_coverage (POV, Tone, Structure, Setting)
+      - quality_baseline_met
+    output:
+      IF validation_passed: final_candidates
+      IF validation_failed: retry_with_adjusted_params
+
+  # Retry loop (max 2 retries)
+  IF retry_needed:
+    adjust: lower_threshold OR increase_k OR explicit_dimension_constraints
+    GOTO: claude_generation
+```
+
+### Fallback (No MCP Available)
+
+**If no MCP servers detected:** Proceed with standard VS execution using Claude only.
+This is still effective - MCP integration is an enhancement, not a requirement.
 
 ---
 

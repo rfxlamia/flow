@@ -3,8 +3,8 @@
 # Version: 1.0.0
 
 registry_version: "1.0.0"
-last_updated: "2025-12-14T12-51-20Z"
-active_project: "claudia-2025-12-14T12-51-20Z"
+last_updated: "2025-12-16T12-00-00Z"
+active_project: "crawde-2025-12-16T12-00-00Z"
 
 projects:
   - id: "claudia-2025-12-14T12-51-20Z"
@@ -13,9 +13,22 @@ projects:
     type: "video"
     platform: "instagram"
     created: "2025-12-14T12-51-20Z"
-    status: "active"
+    status: "completed"
     path: "docs/projects/claudia-2025-12-14T12-51-20Z"
     pipeline: "video-full"
     pipeline_state: "docs/projects/claudia-2025-12-14T12-51-20Z/pipeline-state.yaml"
-    current_stage: 5
-    stages_completed: ["01-diverse", "02-storyteller", "03-screenwriter", "04-validator", "05-imagine"]
+    current_stage: 6
+    stages_completed: ["01-diverse", "02-storyteller", "03-screenwriter", "04-validator", "05-imagine", "06-arch-v"]
+
+  - id: "crawde-2025-12-16T12-00-00Z"
+    name: "crawde"
+    display_name: "crawde"
+    type: "video"
+    platform: "youtube"
+    created: "2025-12-16T12-00-00Z"
+    status: "active"
+    path: "docs/projects/crawde-2025-12-16T12-00-00Z"
+    pipeline: "video-full"
+    pipeline_state: "docs/projects/crawde-2025-12-16T12-00-00Z/pipeline-state.yaml"
+    current_stage: 0
+    stages_completed: []

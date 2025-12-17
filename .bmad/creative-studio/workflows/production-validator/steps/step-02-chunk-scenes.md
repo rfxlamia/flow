@@ -8,6 +8,23 @@
 
 ---
 
+## INITIALIZATION
+
+### Load Continuity System
+
+**BEFORE chunking:** Load continuity tagging reference for tag system understanding:
+
+```
+Load: ../references/continuity-tagging.md
+```
+
+This defines:
+- Continuity tag types (WARDROBE, LIGHTING, etc.)
+- How to track elements across chunks
+- Validation rules for seamless editing
+
+---
+
 ## CHUNKING RULES
 
 ### The 8-Second Rule

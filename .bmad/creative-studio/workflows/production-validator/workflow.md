@@ -172,6 +172,7 @@ Required fields for imagine (from handoff-schema.yaml):
 - Load `veo3-knowledge-base.md` for complex risky element checks
 - Load `chunking-workflow.md` for detailed chunking methodology
 - Load `prompt-optimization.md` for Veo 3 prompt patterns
+- Load `continuity-tagging.md` for continuity tag system and validation
 
 ---
 

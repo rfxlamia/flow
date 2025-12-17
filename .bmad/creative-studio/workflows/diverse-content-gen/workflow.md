@@ -2,6 +2,7 @@
 name: diverse-content-gen
 description: Generate highly diverse creative content using Verbalized Sampling (VS) technique
 type: creative-pipeline-stage-01
+version: 1.5.0
 ---
 
 # Diverse Content Generation Workflow
@@ -18,10 +19,22 @@ This uses **micro-file architecture** with **smart context engineering**:
 
 - workflow.md loads configuration only (minimal tokens)
 - step-01 detects intent and routes to appropriate references
-- step-02 executes VS technique with lazy-loaded templates
+- step-02 executes VS technique with **required** reference loading
 - step-03 presents results and handles refinement
-- References loaded on-demand, never pre-loaded
+- Core reference (`vs-core-technique.md`) loaded at step-02 for creative context
+- Additional references loaded on-demand as needed
 - Each step is self-aware of its scope and capability
+
+### MCP Server Integration (v1.5.0)
+
+This workflow supports optional MCP server enhancement:
+
+| MCP Server | Purpose | Benefit |
+|------------|---------|---------|
+| **Sequential Thinking** | Systematic ideation before generation | Deeper diversity exploration |
+| **Gemini** | Orchestrator/Validator pattern | Multi-model quality assurance |
+
+If MCP servers are not available, workflow proceeds with standard VS execution.
 
 ---
 

@@ -3,8 +3,8 @@
 # Auto-updated by workflows as they complete
 
 project_id: "claudia-2025-12-14T12-51-20Z"
-current_stage: 5
-last_updated: "2025-12-15T03:15:18Z"
+current_stage: 6
+last_updated: "2025-12-16T12:00:00Z"
 
 # Stage Tracking
 stages:
@@ -43,12 +43,13 @@ stages:
     input_from: "04-validator"
 
   "06-arch-v":
-    status: "ready"
-    outputs: []
+    status: "completed"
+    completed_at: "2025-12-15T20:59:20Z"
+    outputs: ["arch-v-prompts-2025-12-15T20-59-20Z.md", "arch-v-template-2025-12-15T13-19-56Z.md"]
     output_location: "06-arch-v/"
     input_from: "05-imagine"
 
 # Quick Access
-next_stage_ready: true
-next_stage: "06-arch-v"
-last_output: "05-imagine/imagine-prompts-2025-12-15T03-15-18Z.md"
+next_stage_ready: false
+next_stage: null
+last_output: "06-arch-v/arch-v-prompts-2025-12-15T20-59-20Z.md"

@@ -1,0 +1,49 @@
+# Creative Studio Pipeline State
+# Project: crawde-2025-12-16T12-00-00Z
+# Auto-updated by workflows as they complete
+
+project_id: "crawde-2025-12-16T12-00-00Z"
+current_stage: 0
+last_updated: "2025-12-16T12-00-00Z"
+
+# Stage Tracking
+stages:
+  "01-diverse":
+    status: "pending"
+    outputs: []
+    output_location: "01-diverse/"
+
+  "02-storyteller":
+    status: "pending"
+    outputs: []
+    output_location: "02-storyteller/"
+    input_from: "01-diverse"
+
+  "03-screenwriter":
+    status: "pending"
+    outputs: []
+    output_location: "03-screenwriter/"
+    input_from: "02-storyteller"
+
+  "04-validator":
+    status: "pending"
+    outputs: []
+    output_location: "04-validator/"
+    input_from: "03-screenwriter"
+
+  "05-imagine":
+    status: "pending"
+    outputs: []
+    output_location: "05-imagine/"
+    input_from: "04-validator"
+
+  "06-arch-v":
+    status: "pending"
+    outputs: []
+    output_location: "06-arch-v/"
+    input_from: "05-imagine"
+
+# Quick Access
+next_stage_ready: false
+next_stage: "01-diverse"
+last_output: null

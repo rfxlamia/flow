@@ -114,11 +114,16 @@ End image: last_frame_{scene_id}.png
 | Utility | Reference File | Load When |
 |---------|---------------|-----------|
 | Camera Movements | `camera-movements.md` | Camera movement specified |
+| Movement Catalog | `movement-catalog.md` | Complex camera moves, conflict validation |
 | Prompt Anatomy | `great-prompt-anatomy.md` | Validating 8 components |
 | Short Prompt | `short-prompt-guide.md` | User chooses SHORT format |
 | Long Prompt | `long-prompt-guide.md` | User chooses LONG format |
 
 **Default:** Load NO references initially. Load specific reference when needed.
+
+**Movement Catalog vs Camera Movements:**
+- `camera-movements.md` - Quick reference for basic movements
+- `movement-catalog.md` - Complete catalog with 50+ movements, conflict checking, hybrid combinations
 
 ---
 

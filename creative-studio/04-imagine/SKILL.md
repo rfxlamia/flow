@@ -1,6 +1,6 @@
 ---
 name: imagine
-description: Prepare detailed, professional prompts for Google Imagen 3/4 image generation. Supports character, environment, and object prompts using natural language with technical photography specifications. Includes Science SARU art style by default, with extensible support for additional art styles via reference files.
+description: Prepare detailed, professional prompts for Google Imagen 3/4 image generation. Supports character, environment, and object prompts using natural language with technical photography specifications. Extensible support for multiple art styles via reference files.
 ---
 
 # Imagine: Imagen Prompt Architect
@@ -43,17 +43,41 @@ For non-photographic styles, read the relevant artstyle reference file first, th
 
 ## Using Artstyle References
 
-**Current default style**: Science SARU (references/artstyle-sciencesaru.md)
+### Step 1: List Available Artstyles
 
-**Before creating prompts with Science SARU style**:
-1. Read references/artstyle-sciencesaru.md to understand the complete visual language
+**Before creating any artistic/stylized prompts, ALWAYS list available artstyle files:**
+
+Use bash to check: `ls /mnt/skills/user/imagine/references/artstyle-*.md`
+
+This returns all available artstyle reference files. Present the list to the user so they can choose, or intelligently select based on their request.
+
+### Step 2: Read the Selected Artstyle Reference
+
+**Once an artstyle is selected (either by user or inferred from request):**
+
+1. Read the complete `references/artstyle-[name].md` file to understand the visual language
 2. Apply the layered prompting strategy from the reference
-3. Use the technical descriptors provided for linework, movement, color, lighting
+3. Use the technical descriptors provided for style-specific characteristics
+4. Follow the style-specific guidelines and vocabulary from the reference
 
-**For future art styles**:
-- User will provide artstyle-[name].md files
-- Always read the relevant artstyle file before generating prompts
-- Follow the style-specific guidelines and vocabulary from each reference
+### Artstyle File Naming Convention
+
+All artstyle references follow the pattern: `artstyle-[name].md`
+
+Examples:
+- `artstyle-sciencesaru.md` - Science SARU animation style
+- `artstyle-corporate-memphis.md` - Corporate Memphis/Alegria style
+- `artstyle-crewdson-hyperrealism.md` - Gregory Crewdson cinematic hyperrealism
+- `artstyle-iphone-social-media.md` - Modern iPhone social media aesthetic
+
+### When No Artstyle is Specified
+
+If the user doesn't specify an artstyle and their request seems to need one:
+1. List available artstyles
+2. Ask which style they prefer, or suggest the most appropriate based on context
+3. Never assume a default artstyle
+
+For pure photography requests without artistic styling, proceed without reading artstyle references.
 
 ## Best Practices from Imagen Architecture
 
@@ -90,12 +114,12 @@ Start simple, layer details progressively:
 ### Character/Portrait
 `"Portrait of [character description with age, features, clothing, emotion], [lens specification 24-85mm], [lighting type], [mood descriptors], [setting], [quality modifiers]"`
 
-**Science SARU character specifics**: Simplified designs, elastic limbs, large expressive eyes, minimalist features, loose rough linework, moderate stylization
+**For styled characters**: Read appropriate artstyle reference for character design specifics (proportions, features, design language)
 
 ### Environment/Landscape  
 `"[Environment type], [weather/time/season], [lens specification 10-24mm wide-angle], [atmospheric conditions], [quality modifiers]"`
 
-**Science SARU environment specifics**: Dense layered urban scenes, flat color blocks with gradients, dramatic stylized lighting, painterly watercolor texture
+**For styled environments**: Read appropriate artstyle reference for environment treatment (composition, color theory, architectural approach)
 
 ### Product/Object
 `"[Product] on [surface], [lens specification 60-105mm macro], [lighting type], [background type], [material/texture details], [quality modifiers]"`
@@ -103,15 +127,18 @@ Start simple, layer details progressively:
 ### Cinematic/Stylized
 `"[Animation/art style], [scene description], [color grading approach], [cinematography terms], [atmospheric effects]"`
 
-**Science SARU cinematic specifics**: Golden hour emotional coding, bloom lighting effects, backlit silhouettes, complementary shadow colors, dynamic tracking camera
+**For cinematic styles**: Read appropriate artstyle reference for cinematic specifics (camera work, lighting philosophy, emotional coding)
 
 ## Workflow for Creating Prompts
 
 1. **Determine type**: Photography, artistic style, or hybrid?
-2. **If using art style**: Read relevant references/artstyle-[name].md file completely
+2. **If using art style**: 
+   - List available artstyles: `ls /mnt/skills/user/imagine/references/artstyle-*.md`
+   - Select appropriate style (by user choice or inference)
+   - Read complete `references/artstyle-[name].md` file
 3. **Build foundation**: Establish subject clearly and early
 4. **Layer context**: Add environment, placement, spatial relationships
-5. **Specify style**: Include aesthetic approach with technical vocabulary
+5. **Specify style**: Include aesthetic approach with technical vocabulary from reference (if using artstyle)
 6. **Add technical specs**: Lens type, lighting, quality modifiers appropriate to subject
 7. **Refine iteratively**: Start simple, add detail progressively until satisfied
 8. **Validate constraints**: Check text-in-image limits, negative prompt format, token count
@@ -121,11 +148,13 @@ Start simple, layer details progressively:
 ### Photography Example
 `"A photo of a plate of traditional Indonesian nasi goreng with fried egg on top, colorful vegetables visible, served on rustic ceramic plate on wooden table, 100mm macro lens, natural window lighting from side, warm atmosphere, steam rising from rice, glistening sauce, high detail, professional food photography, appetizing composition"`
 
-### Science SARU Style Example  
-`"Science SARU animation style directed by Masaaki Yuasa, digitally-assisted 2D hand-drawn aesthetic. Young Indonesian street vendor character with simplified design, elastic limbs with soft rounded contours, large expressive eyes, minimalist features, worn clothing in muted earth tones, loose rough linework with variable thickness. Dense layered Jakarta street scene at golden hour, simplified geometric shophouses with clean vector linework, vibrant warm tropical palette transitioning to orange-pink sunset gradient sky, atmospheric heat haze, dramatic long shadows, wet reflective surfaces, vertical composition with hanging power lines and palm trees. Melancholic but hopeful atmosphere, desaturated base with warm sunset accents, cool blue-purple shadows, bloom lighting effects, isolated character against silhouetted crowd. Flat color blocks with gradients, painterly watercolor texture, irregular geometric shapes, deliberately unfinished aesthetic, complementary shadow colors, dynamic low-angle camera, perpetual subtle character deformation, fluid elastic movement, watercolor-flow quality"`
+### Artistic Style Example (Generic Template)
+`"[Artstyle name] aesthetic, [medium/technique]. [Character description following style's design principles], [character-specific features from artstyle reference]. [Environment description following style's composition approach], [environmental specifics from artstyle reference]. [Atmospheric qualities from style guide], [color and lighting approach from reference]. [Technical rendering specs from style guide], [texture and quality markers from reference]"`
 
-### Hybrid Example (Science SARU character, photographic background)
-`"A photo of a simplified cartoon character in Science SARU animation style with elastic limbs and large expressive eyes, loose rough linework, standing on actual Jakarta street, 35mm lens, golden hour natural lighting, real urban background with simplified cartoon character overlay, professional photography with 2D animation integration, warm atmospheric lighting, high detail background with stylized character"`
+**Note**: The actual artistic prompt should be built by reading the specific artstyle reference file and applying its guidelines. See individual artstyle-*.md files for complete examples.
+
+### Hybrid Example (Styled character, photographic background)
+`"A photo of [character description in chosen art style], standing on actual [real environment], 35mm lens, golden hour natural lighting, real background with stylized character overlay, professional photography with [art style] integration, warm atmospheric lighting, high detail background with stylized character"`
 
 ## Tips for Quality Output
 
@@ -138,7 +167,23 @@ Start simple, layer details progressively:
 ## Extensibility
 
 This skill is designed to grow with your needs:
-- Add new artstyle-[name].md files to references/ for different visual styles
-- Follow the pattern from artstyle-sciencesaru.md for documentation structure
-- Always read the relevant artstyle file before generating style-specific prompts
-- Science SARU remains the default style when no other style is specified
+- Add new `artstyle-[name].md` files to `references/` for different visual styles
+- Follow consistent documentation structure from existing artstyle files
+- Always list available artstyles at the start of artistic prompt workflows
+- Each artstyle reference should provide:
+  - Visual DNA and core characteristics
+  - Technical prompting vocabulary
+  - Layered prompting strategy
+  - Complete example prompts
+  - Style-specific guidelines for characters, environments, lighting, composition
+
+## Adding New Artstyles
+
+To add a new artstyle:
+1. Create `references/artstyle-[name].md`
+2. Document the style's visual characteristics comprehensively
+3. Provide AI prompting vocabulary and technical descriptors
+4. Include layered prompting strategy and complete examples
+5. The skill will automatically detect and list it when checking available artstyles
+
+No code changes needed - the skill dynamically discovers all artstyle-*.md files in the references directory.

@@ -20,6 +20,8 @@ Concept → Content → Scenes → Screenplay → Validation → Images → Vide
 
 ## Quick Start
 
+> 📖 **CLI Users:** See [CLI-ENTRY.md](CLI-ENTRY.md) for detailed command-line usage guide.
+
 ### Run Full Pipeline
 
 ```
@@ -180,8 +182,8 @@ User: "Run arch-v for a coffee shop morning video"
 ├── README.md                      # This file
 ├── ARCHITECTURE.md                # Technical details
 ├── _state/
-│   ├── creative-pipeline-state.yaml   # Global state
-│   ├── handoff-schema.yaml            # Stage contracts
+│   ├── projects-registry.yaml         # Active projects registry
+│   ├── HANDOFF-CONTRACTS.md           # Stage contract docs (dev reference)
 │   └── conversion-project.yaml        # Conversion tracking
 └── workflows/
     ├── diverse-content-gen/
